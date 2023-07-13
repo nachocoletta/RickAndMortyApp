@@ -1,0 +1,16 @@
+.divContenedorCard {
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 300px;
+  max-height: 300px;
+  justify-content: space-around;
+  text-align: center;
+  border: 2px solid white;
+  color: cornsilk;
+}
+
+img {
+  border-radius: 20%;
+}
