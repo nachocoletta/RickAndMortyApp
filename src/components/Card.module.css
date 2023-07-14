@@ -1,16 +1,22 @@
 .divContenedorCard {
-  display: flex;
-  flex-wrap: nowrap;
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 300px;
-  max-height: 300px;
-  justify-content: space-around;
-  text-align: center;
-  border: 2px solid white;
-  color: cornsilk;
+  font-size: 10px;
 }
 
 img {
   border-radius: 20%;
+  height: 250px;
+  width: 250px;
+}
+
+.imageContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.buttonStyle {
+  display: flex;
+  justify-content: flex-end;
 }

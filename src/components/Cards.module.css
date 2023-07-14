@@ -1,0 +1,26 @@
+.cardsContainer {
+  display: inline-block;
+  height: auto;
+  text-align: start;
+  min-width: 300px;
+  max-width: 300px;
+  color: cornsilk;
+  margin: 10px;
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
+  align-items: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border-radius: 20px;
+  /* padding-top: 30px; */
+  /* padding: 20px; */
+
+  /* gap: 5px; */
+  background-color: rgba(66, 61, 117, 0.521);
+  /* opacity: 0.75 ; */
+  /* white-space: normal; */
+}
+
+.cardsContainer:hover {
+  background-color: rgb(4, 4, 61);
+  opacity: 90%;
+}

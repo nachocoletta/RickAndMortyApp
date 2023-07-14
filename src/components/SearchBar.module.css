@@ -1,0 +1,15 @@
+.searchBarContainer {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBarContainer button {
+  border-radius: 10%;
+  background-color: antiquewhite;
+}
+
+.searchBarContainer input {
+  background-color: azure;
+}
