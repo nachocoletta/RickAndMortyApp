@@ -1,0 +1,5 @@
+.randomCharacter {
+  display: flex;
+  border-radius: 20%;
+  justify-content: center;
+}

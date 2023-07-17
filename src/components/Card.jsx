@@ -3,9 +3,9 @@ export default function Card(props) {
   // console.log(props);
   const { character, onClose } = props;
   return (
-    <div className={styles.divContenedorCard}>
+    <div key={character.id} className={styles.divContenedorCard}>
       <div className={styles.buttonStyle}>
-        <button onClick={onClose}>X</button>
+        <button onClick={() => onClose(character.id)}>X</button>
       </div>
       <h2>Name: {character.name}</h2>
       <h2>Status: {character.status}</h2>

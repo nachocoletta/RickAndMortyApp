@@ -12,4 +12,5 @@
 
 .searchBarContainer input {
   background-color: azure;
+  width: 450px;
 }
