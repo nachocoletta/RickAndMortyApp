@@ -1,0 +1,27 @@
+/* Detail.module.css */
+.container {
+  display: flex;
+  flex-direction: row; /* Display the content and image side by side */
+  align-items: center; /* Center vertically */
+  border: 2px solid whitesmoke;
+  width: auto;
+  color: antiquewhite;
+}
+
+.textContainer {
+  flex: 1; /* Allow the text content to expand and take available space */
+  opacity: 0.9; /* Set opacity for the text container */
+}
+
+.imageContainer {
+  opacity: 0.7; /* Set opacity for the image container */
+  border-radius: 20%;
+  height: 600px;
+  width: 600px;
+}
+
+/* img {
+  border-radius: 20%;
+  height: 600px;
+  width: 600px;
+} */

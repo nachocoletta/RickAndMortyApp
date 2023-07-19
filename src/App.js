@@ -5,6 +5,10 @@ import Nav from "./components/Nav";
 import axios from "axios";
 // import SearchBar from "./components/SearchBar.jsx";
 // import characters from "./data.js";
+import { Routes, Route } from "react-router-dom";
+import About from "./components/About";
+import Detail from "./components/Detail";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -55,8 +59,16 @@ function App() {
   return (
     <div className={style.App}>
       <Nav onSearch={onSearch} onRandomSearch={onRandomSearch} />
-      <hr />
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+      {/* <hr /> */}
     </div>
   );
 }
