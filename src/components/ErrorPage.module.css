@@ -1,17 +1,24 @@
+/* ErrorPage.module.css */
 .errorContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 90%;
+  justify-content: center;
+  height: 100vh;
+  color: red;
 }
 
 .errorImage {
-  width: 500px;
-  height: 500px;
+  max-width: 300px;
+  margin-bottom: 20px;
 }
+
 .errorMessage {
-  color: antiquewhite;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
+
 .errorDescription {
-  color: antiquewhite;
+  font-size: 16px;
+  text-align: center;
 }
