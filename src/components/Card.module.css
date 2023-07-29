@@ -1,8 +1,17 @@
 .divContenedorCard {
   font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
-img {
+.divContenedorCard:hover {
+  background-color: rgba(66, 61, 117, 0.521);
+  /* background-color: rgb(4, 4, 61); */
+  opacity: 90%;
+}
+
+.divContenedorCard img {
   border-radius: 20%;
   height: 250px;
   width: 250px;
@@ -19,4 +28,9 @@ img {
 .buttonStyle {
   display: flex;
   justify-content: flex-end;
+}
+
+.buttonsFavoritesAndClose {
+  display: flex;
+  justify-content: space-between;
 }

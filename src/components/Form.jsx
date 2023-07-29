@@ -50,7 +50,8 @@ const Form = ({ login }) => {
             value={inputs.email}
             onChange={handleChange}
           ></input>
-          {errors.email ? <p style={{ color: "red" }}>{errors.email}</p> : null}
+          <p style={{ color: "red" }}>{errors.email ? errors.email : null}</p>
+          {/* {errors.email ? <p style={{ color: "red" }}>{errors.email}</p> : null} */}
         </div>
         <div>
           <label>PASSWORD </label>
@@ -62,9 +63,12 @@ const Form = ({ login }) => {
             value={inputs.password}
             onChange={handleChange}
           ></input>
-          {errors.password ? (
+          <p style={{ color: "red" }}>
+            {errors.password ? errors.password : null}
+          </p>
+          {/* {errors.password ? (
             <p style={{ color: "red" }}>{errors.password}</p>
-          ) : null}
+          ) : null} */}
         </div>
         <button type="submit" disabled={botonHabilitado}>
           Enviar

@@ -5,11 +5,11 @@ export default function Cards(props) {
   const { onClose } = props;
   //   console.log(characters);
 
-  return characters.map((character) => {
-    return (
-      <div className={styles.cardsContainer} key={character.id}>
+  return (
+    <div className={styles.cardsContainer}>
+      {characters.map((character) => (
         <Card key={character.id} character={character} onClose={onClose} />
-      </div>
-    );
-  });
+      ))}
+    </div>
+  );
 }

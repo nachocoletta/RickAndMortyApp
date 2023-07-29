@@ -11,6 +11,7 @@ import About from "./components/About";
 import Detail from "./components/Detail";
 import ErrorPage from "./components/ErrorPage";
 import Form from "./components/Form";
+import Favorites from "./components/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -88,13 +89,23 @@ function App() {
       <Routes>
         <Route
           path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
+          element={
+            !access ? (
+              <Form login={login} />
+            ) : (
+              <Cards characters={characters} onClose={onClose} />
+            )
+          }
         />
         <Route path="/about" element={<About />} />
+        <Route
+          path="/"
+          element={!access ? <Form login={login} /> : <About />}
+        />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/" element={<Form login={login} />} />
-        {/* Ruta "catch-all" para manejar rutas no encontradas */}
+        <Route path="/favorites" element={<Favorites />} />
         <Route element={<ErrorPage />} />
+        {/* Ruta "catch-all" para manejar rutas no encontradas */}
       </Routes>
     </div>
   );

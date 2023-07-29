@@ -3,3 +3,20 @@
   border-radius: 20%;
   justify-content: center;
 }
+
+.divBotones {
+  display: flex;
+  align-items: center;
+  /* background-color: blueviolet; */
+  justify-content: center;
+}
+
+.divBotones button {
+  background-color: antiquewhite;
+  border-radius: 10%;
+}
+.divSearchBar {
+  display: flex;
+  justify-content: center;
+  /* background-color: brown; */
+}
