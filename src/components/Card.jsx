@@ -51,7 +51,18 @@ class Card extends Component {
           )}
 
           <div className={styles.buttonStyle}>
-            <button onClick={() => onClose(character.id)}>X</button>
+            <button
+              onClick={() => {
+                onClose(character.id);
+                if (this.state.isFav) {
+                  this.handleFavorite();
+                  console.log(character.id);
+                }
+                // console.log(this.state);
+              }}
+            >
+              X
+            </button>
           </div>
         </div>
         <Link to={`/detail/${character.id}`}>

@@ -5,6 +5,7 @@ const initalState = {
 };
 
 const rootReducer = (state = initalState, action) => {
+  console.log("entra afuera del switch: ", action.type);
   switch (action.type) {
     case ADD_FAV:
       //   console.log("action.payload", action.payload);
@@ -13,6 +14,7 @@ const rootReducer = (state = initalState, action) => {
         myFavorites: [...state.myFavorites, action.payload],
       };
     case REMOVE_FAV: {
+      // console.log("entra al reducer");
       return {
         ...state,
         myFavorites: state.myFavorites.filter(
@@ -21,6 +23,7 @@ const rootReducer = (state = initalState, action) => {
       };
     }
     default:
+      // console.log("entra al default");
       return {
         ...state,
       };

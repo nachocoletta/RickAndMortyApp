@@ -9,6 +9,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
+  // console.log("entra a la action");
   return {
     type: REMOVE_FAV,
     payload: id,

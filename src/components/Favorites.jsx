@@ -10,10 +10,13 @@ class Favorites extends Component {
 
   render() {
     // console.log(this.props);
+    const { onClose } = this.props;
     return (
       <div className={styles.cardsContainer}>
         {this.props.myFavorites.map((character) => {
-          return <Card key={character.id} character={character} />;
+          return (
+            <Card key={character.id} character={character} onClose={onClose} />
+          );
         })}
       </div>
     );

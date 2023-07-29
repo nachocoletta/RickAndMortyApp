@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-
 import style from "./App.module.css";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav";
 import axios from "axios";
-// import SearchBar from "./components/SearchBar.jsx";
-// import characters from "./data.js";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import About from "./components/About";
 import Detail from "./components/Detail";
 import ErrorPage from "./components/ErrorPage";
 import Form from "./components/Form";
 import Favorites from "./components/Favorites";
-
-function App() {
+import { connect } from "react-redux"; // Add this import
+import { removeFav } from "./redux/actions/actions"; // Add this import
+function App({ myFavorites }) {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
@@ -77,6 +75,7 @@ function App() {
     // window.alert("click");
     let arregloFiltrado = characters.filter((character) => character.id !== id);
     setCharacters(arregloFiltrado);
+    removeFav(id);
   };
 
   return (
@@ -103,7 +102,7 @@ function App() {
           element={!access ? <Form login={login} /> : <About />}
         />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route element={<ErrorPage />} />
         {/* Ruta "catch-all" para manejar rutas no encontradas */}
       </Routes>
@@ -111,4 +110,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites,
+  };
+};
+
+export default connect(mapStateToProps)(App);
