@@ -1,20 +1,19 @@
-import { ADD_FAV, REMOVE_FAV } from "../actions/action-types";
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "../actions/action-types";
 
 const initalState = {
   myFavorites: [],
+  allCharacters: [],
 };
 
 const rootReducer = (state = initalState, action) => {
-  console.log("entra afuera del switch: ", action.type);
   switch (action.type) {
     case ADD_FAV:
-      //   console.log("action.payload", action.payload);
       return {
         ...state,
         myFavorites: [...state.myFavorites, action.payload],
+        allCharacters: [...state.allCharacters, action.payload],
       };
     case REMOVE_FAV: {
-      // console.log("entra al reducer");
       return {
         ...state,
         myFavorites: state.myFavorites.filter(
@@ -22,6 +21,62 @@ const rootReducer = (state = initalState, action) => {
         ),
       };
     }
+    case FILTER: {
+      return {
+        ...state,
+        myFavorites: state.allCharacters.filter(
+          (character) => character.gender === action.payload
+        ),
+      };
+    }
+    case ORDER: {
+      const charactersOrdered = [...state.allCharacters];
+      const charactersFiltered =
+        action.payload === "A"
+          ? charactersOrdered.sort(function (a, b) {
+              if (a.id > b.id) {
+                return 1;
+              } else if (a.id < b.id) {
+                return -1;
+              } else {
+                return 0;
+              }
+            })
+          : charactersOrdered.sort(function (a, b) {
+              if (a.id < b.id) {
+                return 1;
+              } else if (a.id > b.id) {
+                return -1;
+              } else {
+                return 0;
+              }
+            });
+      return {
+        ...state,
+        myFavorites: charactersFiltered,
+      };
+    }
+    // case FILTER: {
+    //   return {
+    //     ...state,
+    //     myFavorites: state.allCharacters.filter(
+    //       (character) => character.gender === action.payload
+    //     ),
+    //   };
+    // }
+    // case ORDER: {
+    //   const charactersOrdered = [...state.allCharacters];
+    //   const charactersFiltered =
+    //     action.payload === "A"
+    //       ? charactersOrdered.sort((a, b) => a.id - b.id)
+    //       : charactersOrdered.sort((a, b) => b.id - a.id);
+
+    //   return {
+    //     ...state,
+    //     myFavorites: charactersFiltered,
+    //   };
+    // }
+
     default:
       // console.log("entra al default");
       return {
