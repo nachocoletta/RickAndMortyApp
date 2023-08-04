@@ -22,12 +22,21 @@ const rootReducer = (state = initalState, action) => {
       };
     }
     case FILTER: {
-      return {
-        ...state,
-        myFavorites: state.allCharacters.filter(
-          (character) => character.gender === action.payload
-        ),
-      };
+      console.log(action.payload);
+      if (action.payload === "All") {
+        console.log("entra");
+        return {
+          ...state,
+          myFavorites: state.allCharacters,
+        };
+      } else {
+        return {
+          ...state,
+          myFavorites: state.allCharacters.filter(
+            (character) => character.gender === action.payload
+          ),
+        };
+      }
     }
     case ORDER: {
       const charactersOrdered = [...state.allCharacters];
