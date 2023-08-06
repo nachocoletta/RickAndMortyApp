@@ -68,10 +68,14 @@ class Card extends Component {
         <Link to={`/detail/${character.id}`}>
           <h2>Name: {character.name}</h2>
         </Link>
-        <h2>Status: {character.status}</h2>
+        {character?.status ? <h2>Status: {character.status}</h2> : null}
+        {/* <h2>Status: {character.status}</h2> */}
         <h2>Species: {character.species}</h2>
         <h2>Gender: {character.gender}</h2>
-        <h2>Origin: {character.origin.name}</h2>
+        {character.origin?.name ? (
+          <h2>Origin: {character.origin?.name}</h2>
+        ) : null}
+        {/* <h2>Origin: {character.origin?.name}</h2> */}
         <div className={styles.imageContainer}>
           <img src={character.image} alt={character.name} />
         </div>
