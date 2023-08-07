@@ -1,34 +1,42 @@
 const http = require("http");
-const fs = require("fs");
-// const { axios } = require("axios");
-// const personajes = require("../utils/data");
-const characters = require("../utils/data");
 
-const PORT = 3001;
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { PORT } = process.env;
+const { getCharById } = require("../controllers/getCharById");
 
 http
   .createServer((req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    // console.log(`Server en puerto ${PORT}`);
-    // console.log(req.url);
-    if (req.url.includes("rickandmorty/character")) {
-      const id = req.url.split("/").at(-1);
-      //   console.log(id);
-      const findedCharacter = characters.find(
-        (char) => char.id === parseInt(id)
-      );
 
-      if (findedCharacter) {
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(findedCharacter));
-      } else {
-        res.writeHead(404, { "Content-Type": "text/plain" });
-        res.end("Personaje no encontrado");
-      }
-    } else {
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("URL INVALIDA");
+    if (req.url.includes("onSearch")) {
+      const id = req.url.split("/").at(-1);
+      getCharById(res, id);
     }
-    return;
   })
-  .listen(PORT, "localhost");
+  .listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+  });
+
+// const http = require("http");
+// const fs = require("fs");
+// const dotenv = require("dotenv");
+// dotenv.config();
+// const characters = require("../utils/data");
+// const { getCharById } = require("../controllers/getCharById");
+// const { PORT } = process.env;
+
+// http
+//   .createServer((req, res) => {
+//     res.setHeader("Access-Control-Allow-Origin", "*");
+//     if (req.url.includes("rickandmorty/character")) {
+//       const id = req.url.split("/").at(-1);
+//       getCharById(res, id);
+//       return;
+//     }
+//     return;
+//   })
+//   .listen(PORT, () => {
+//     console.log(`Servidor corriendo en el puerto ${PORT}`);
+//   });
