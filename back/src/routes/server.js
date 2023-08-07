@@ -5,7 +5,7 @@ dotenv.config();
 
 const { PORT } = process.env;
 const { getCharById } = require("../controllers/getCharById");
-
+const { getCharDetail } = require("../controllers/getCharDetail");
 http
   .createServer((req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -13,6 +13,13 @@ http
     if (req.url.includes("onSearch")) {
       const id = req.url.split("/").at(-1);
       getCharById(res, id);
+      return;
+    }
+    if (req.url.includes("detail")) {
+      const id = req.url.split("/").at(-1);
+      console.log("getchar");
+      getCharDetail(res, id);
+      return;
     }
   })
   .listen(PORT, () => {

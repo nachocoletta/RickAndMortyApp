@@ -40,7 +40,7 @@ function App({ myFavorites }) {
     );
     // console.log(exists);
     if (!exists) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
+      axios(`http://localhost:3001/rickandmorty/onSearch/${id}`)
         // axios(`https://rickandmortyapi.com/api/character/${id}`)
         .then(({ data }) => {
           if (data.name) {
