@@ -60,23 +60,27 @@ const Favorites = ({ onClose }) => {
     dispatch(filterCards(event.target.value));
   };
   return (
-    <div className={styles.cardsContainer}>
-      <select onChange={handleOrder}>
-        <option value="A">Ascendente</option>
-        <option value="D">Descendente</option>
-      </select>
-      <select onChange={handleFilter}>
-        <option value="All">Todos los Personajes</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">unknown</option>
-      </select>
-      {myFavorites.map((character) => {
-        return (
-          <Card key={character.id} character={character} onClose={onClose} />
-        );
-      })}
+    <div className={styles.container}>
+      <div className={styles.filterSelects}>
+        <select onChange={handleOrder}>
+          <option value="A">Ascendente</option>
+          <option value="D">Descendente</option>
+        </select>
+        <select onChange={handleFilter}>
+          <option value="All">Todos los Personajes</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Genderless">Genderless</option>
+          <option value="unknown">unknown</option>
+        </select>
+      </div>
+      <div className={styles.cards}>
+        {myFavorites.map((character) => {
+          return (
+            <Card key={character.id} character={character} onClose={onClose} />
+          );
+        })}
+      </div>
     </div>
   );
 };

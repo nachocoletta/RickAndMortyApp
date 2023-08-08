@@ -1,8 +1,13 @@
 .divContenedorCard {
+  padding: 20px;
+  border: white solid 2px;
   font-size: 10px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  width: 250px;
+  height: 450px;
+  margin-top: 10px;
 }
 
 .divContenedorCard:hover {
@@ -33,4 +38,17 @@
 .buttonsFavoritesAndClose {
   display: flex;
   justify-content: space-between;
+}
+
+.link {
+  color: blue;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: blue;
+}
+
+.link:visited {
+  color: blue;
 }

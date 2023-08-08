@@ -8,7 +8,7 @@ export default function SearchBar(props) {
 
   const handleChange = (event) => {
     setId(event.target.value);
-    console.log(id);
+    // console.log(id);
   };
 
   return (
@@ -16,7 +16,7 @@ export default function SearchBar(props) {
       <input type="search" onChange={handleChange} placeholder="Personaje..." />
       <button
         onClick={() => {
-          console.log(id);
+          // console.log(id);
           props.onSearch(id);
         }}
       >

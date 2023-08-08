@@ -1,19 +1,41 @@
-.cardsContainer {
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Añadir margen superior para separar los selects de las tarjetas */
+}
+
+.filterSelects {
+  display: flex;
+  justify-content: space-around;
+  /* background-color: green; */
+  /* border-color: aqua; */
+  padding: 10px;
+  width: 100%; /* O ajusta el ancho según sea necesario */
+  box-sizing: border-box; /* Evita que los bordes y el padding afecten el ancho total */
+}
+
+.filterSelects select {
+  width: 150px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  text-align: start;
-  color: cornsilk;
-  margin: 10px;
-  gap: 10px;
   justify-content: space-around;
+  gap: 20px;
   align-items: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: rgb(4, 4, 61);
+  opacity: 75%;
   border-radius: 20px;
   padding: 20px;
-  background-color: rgb(4, 4, 61);
-
-  opacity: 0.75;
-  /* white-space: normal; */
-  /* min-height: 100vh; */
+  margin-top: 20px;
+  width: 98%; /* O ajusta el ancho según sea necesario */
+  box-sizing: border-box; /* Evita que los bordes y el padding afecten el ancho total */
 }
