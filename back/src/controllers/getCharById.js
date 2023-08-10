@@ -1,34 +1,63 @@
 const axios = require("axios");
-const { toJSON } = require("../utils/toJSON");
-const dotenv = require("dotenv");
-dotenv.config();
-// const API_URL = "https://rickandmortyapi.com/api/character";
-const { API_URL } = process.env;
-const getCharById = (res, id) => {
-  // console.log("entra");
-  // console.log("API_URL: ", API_URL);
+const URL = "https://rickandmortyapi.com/api/character";
+
+const getCharById = (req, res) => {
+  const { id } = req.params;
   axios
-    .get(`${API_URL}/${id}`)
-    .then((response) => {
-      const { data } = response;
-      // console.log(data);
+    .get(`${URL}/${id}`)
+    .then(({ data }) => {
+      if (data.error) {
+        return res.status(404).send(data.error);
+      }
       const character = {
-        id: id,
+        id: Number(data.id),
         name: data.name,
-        gender: data.gender,
+        status: data.status,
         species: data.species,
+        origin: data.origin,
         image: data.image,
+        gender: data.gender,
       };
-      res.writeHead(200, { "Content-type": "application/json" });
-      return res.end(JSON.stringify(character));
-      // return res.end(toJSON(character));
+      console.log(data);
+      return res.status(200).json(character);
     })
     .catch((error) => {
-      res.writeHead(404, { "Content-type": "text/plain" });
-      return res.end(error.message);
+      return res.status(500).send(error.message);
     });
 };
 
-module.exports = {
-  getCharById,
-};
+module.exports = { getCharById };
+// const axios = require("axios");
+// const { toJSON } = require("../utils/toJSON");
+// const dotenv = require("dotenv");
+// dotenv.config();
+// // const API_URL = "https://rickandmortyapi.com/api/character";
+// const { API_URL } = process.env;
+// const getCharById = (res, id) => {
+//   // console.log("entra");
+//   // console.log("API_URL: ", API_URL);
+//   axios
+//     .get(`${API_URL}/${id}`)
+//     .then((response) => {
+//       const { data } = response;
+//       // console.log(data);
+//       const character = {
+//         id: id,
+//         name: data.name,
+//         gender: data.gender,
+//         species: data.species,
+//         image: data.image,
+//       };
+//       res.writeHead(200, { "Content-type": "application/json" });
+//       return res.end(JSON.stringify(character));
+//       // return res.end(toJSON(character));
+//     })
+//     .catch((error) => {
+//       res.writeHead(404, { "Content-type": "text/plain" });
+//       return res.end(error.message);
+//     });
+// };
+
+// module.exports = {
+//   getCharById,
+// };
