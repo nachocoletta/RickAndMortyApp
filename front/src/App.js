@@ -21,11 +21,29 @@ function App({ myFavorites }) {
   const navigate = useNavigate();
 
   const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate("/home");
-    }
+    const { email, password } = userData;
+    // console.log("entra");
+    // const URL =
+    //   "http://localhost:3001/user/login?email=ignacio_coletta@hotmail.com&password=Nacho1978";
+    const URL = `http://localhost:3001/user/login?email=${email}&password=${password}`;
+    axios(URL)
+      .then(({ data }) => {
+        // console.log("ENTRA");
+        const { access } = data;
+        setAccess(access);
+        access && navigate("/home");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
+
+  // const login = (userData) => {
+  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
+  //     setAccess(true);
+  //     navigate("/home");
+  //   }
+  // };
   const logout = () => {
     setAccess(false);
     navigate("/");
@@ -40,7 +58,7 @@ function App({ myFavorites }) {
     );
     // console.log(exists);
     if (!exists) {
-      axios(`http://localhost:3001/rickandmorty/onSearch/${id}`)
+      axios(`http://localhost:3001/character/${id}`)
         // axios(`https://rickandmortyapi.com/api/character/${id}`)
         .then(({ data }) => {
           if (data.name) {

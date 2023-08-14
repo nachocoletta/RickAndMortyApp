@@ -38,4 +38,5 @@
   margin-top: 20px;
   width: 98%; /* O ajusta el ancho según sea necesario */
   box-sizing: border-box; /* Evita que los bordes y el padding afecten el ancho total */
+  color: cornsilk;
 }

@@ -10,17 +10,32 @@ const rootReducer = (state = initalState, action) => {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: [...state.myFavorites, action.payload],
-        allCharacters: [...state.allCharacters, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
+    // case ADD_FAV:
+    //   return {
+    //     ...state,
+    //     myFavorites: [...state.myFavorites, action.payload],
+    //     allCharacters: [...state.allCharacters, action.payload],
+    //   };
     case REMOVE_FAV: {
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
+        myFavorites: action.payload,
+        allCharacters: state.allCharacters.filter(
           (character) => character.id !== action.payload
         ),
       };
     }
+    // case REMOVE_FAV: {
+    //   return {
+    //     ...state,
+    //     myFavorites: state.myFavorites.filter(
+    //       (character) => character.id !== action.payload
+    //     ),
+    //   };
+    // }
     case FILTER: {
       console.log(action.payload);
       if (action.payload === "All") {
@@ -39,7 +54,7 @@ const rootReducer = (state = initalState, action) => {
       }
     }
     case ORDER: {
-      const charactersOrdered = [...state.allCharacters];
+      const charactersOrdered = [...state.myFavorites];
       const charactersFiltered =
         action.payload === "A"
           ? charactersOrdered.sort(function (a, b) {

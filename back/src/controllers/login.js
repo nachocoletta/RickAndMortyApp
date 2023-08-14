@@ -2,6 +2,7 @@ const users = require("../utils/users");
 
 const login = (req, res) => {
   const { email, password } = req.query;
+  console.log(req.query);
   let access = false;
 
   const usuarioHabilitado = users.find(

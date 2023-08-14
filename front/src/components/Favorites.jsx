@@ -48,7 +48,7 @@ const Favorites = ({ onClose }) => {
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
 
-  const [aux, setAux] = useState(false);
+  // const [aux, setAux] = useState(false);
 
   const handleOrder = (event) => {
     // setAux(!aux);
