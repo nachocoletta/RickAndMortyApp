@@ -15,8 +15,8 @@ function App({ myFavorites }) {
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
 
-  const EMAIL = "ignacio_coletta@hotmail.com";
-  const PASSWORD = "Nacho1978";
+  // const EMAIL = "ignacio_coletta@hotmail.com";
+  // const PASSWORD = "Nacho1978";
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ function App({ myFavorites }) {
     const URL = `http://localhost:3001/user/login?email=${email}&password=${password}`;
     axios(URL)
       .then(({ data }) => {
-        // console.log("ENTRA");
+        // console.log(data);
         const { access } = data;
         setAccess(access);
         access && navigate("/home");

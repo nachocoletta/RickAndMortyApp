@@ -10,4 +10,5 @@ const {
 favoritesRouter.get("/", getFav);
 favoritesRouter.post("/", postFav);
 favoritesRouter.delete("/:id", deleteFav);
+
 module.exports = favoritesRouter;

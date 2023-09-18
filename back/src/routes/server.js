@@ -3,13 +3,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
 
 app.use(cors());
 
+const { PORT } = process.env;
+
 const fav = [];
+
 app.get("/rickandmorty/character/:id", (req, res) => {
   const { id } = req.params;
 
@@ -52,7 +56,7 @@ app.post("/rickandmorty/fav", (req, res) => {
 
 app.delete("/rickandmorty/fav", (req, res) => {});
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log("corriendo en puerto 3001");
 });
 

@@ -23,9 +23,7 @@ const rootReducer = (state = initalState, action) => {
       return {
         ...state,
         myFavorites: action.payload,
-        allCharacters: state.allCharacters.filter(
-          (character) => character.id !== action.payload
-        ),
+        allCharacters: action.payload,
       };
     }
     // case REMOVE_FAV: {
@@ -37,9 +35,9 @@ const rootReducer = (state = initalState, action) => {
     //   };
     // }
     case FILTER: {
-      console.log(action.payload);
+      // console.log(action.payload);
       if (action.payload === "All") {
-        console.log("entra");
+        // console.log("entra");
         return {
           ...state,
           myFavorites: state.allCharacters,

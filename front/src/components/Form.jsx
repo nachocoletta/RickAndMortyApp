@@ -27,7 +27,8 @@ const Form = ({ login }) => {
     const arrayDeErrores = Object.values(validaciones);
 
     if (arrayDeErrores.length === 0) {
-      window.alert("Datos completos");
+      // window.alert("Datos completos");
+      // window.alert(inputs.email);
       login(inputs);
     } else {
       window.alert("Error en el usuario o clave");

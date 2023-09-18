@@ -6,6 +6,7 @@ const getCharById = (req, res) => {
   axios
     .get(`${URL}/${id}`)
     .then(({ data }) => {
+      // si no encontro el personaje
       if (data.error) {
         return res.status(404).send(data.error);
       }
@@ -18,7 +19,7 @@ const getCharById = (req, res) => {
         image: data.image,
         gender: data.gender,
       };
-      console.log(data);
+      // console.log(data);
       return res.status(200).json(character);
     })
     .catch((error) => {
