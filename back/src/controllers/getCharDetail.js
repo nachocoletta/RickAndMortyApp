@@ -4,9 +4,29 @@ const dotenv = require("dotenv");
 dotenv.config();
 const { API_URL } = process.env;
 
-const getCharDetail2 = async (res, id) => {
-  const response = await axios.get(`${API_URL}/${id}`);
-  console.log(response);
+const getCharDetailAsync = async (req, res) => {
+  try {
+    console.log("entra a getchardetailasync");
+    let { id } = req.params;
+    console.log(id);
+    const response = await axios.get(`${API_URL}/${id}`);
+    // console.log(response);
+    const { data } = response;
+
+    const character = {
+      id: id,
+      image: data.image,
+      name: data.name,
+      gender: data.gender,
+      status: data.status,
+      origin: data.origin,
+      species: data.species,
+    };
+
+    return res.status(200).json(character);
+  } catch (axiosError) {
+    return res.status(500).json({ error: axiosError.message });
+  }
 };
 const getCharDetail = (res, id) => {
   // console.log("entra a getCharDetail");
@@ -37,4 +57,5 @@ const getCharDetail = (res, id) => {
 
 module.exports = {
   getCharDetail,
+  getCharDetailAsync,
 };

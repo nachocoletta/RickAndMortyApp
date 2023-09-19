@@ -9,7 +9,7 @@ const Detail = () => {
 
   useEffect(() => {
     // console.log("entra");
-    axios(`http://localhost:3001/character/${id}`).then(
+    axios(`http://localhost:3001/character/detail/${id}`).then(
       // axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
         if (data.name) {

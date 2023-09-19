@@ -2,9 +2,12 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { getCharById } = require("./controllers/getCharById");
+const { getCharDetailAsync } = require("./controllers/getCharDetail");
+
 const characterRouter = require("./routes/character");
 const userRouter = require("./routes/user");
 const favoritesRouter = require("./routes/favorites");
+
 require("dotenv").config();
 
 const { PORT } = process.env;
@@ -39,7 +42,7 @@ app.use(cors()); // esto reemplaza a todo el codigo comentado que sigue, instalo
 
 const fav = [];
 
-app.get("/healt-check/:id", getCharById);
+app.get("/healt-check/:id", getCharDetailAsync);
 
 // app.get("/rickandmorty/character/:id", (req, res) => {
 //   const { id } = req.params;

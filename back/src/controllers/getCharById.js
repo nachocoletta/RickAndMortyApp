@@ -3,9 +3,9 @@ const URL = "https://rickandmortyapi.com/api/character";
 
 const getCharById = async (req, res) => {
   const { id } = req.params;
-  // console.log("entra");
   try {
     const apiRequest = await axios.get(`${URL}/${id}`);
+    // console.log("entra");
     const { data } = apiRequest;
     // console.log("apiRequest", apiRequest.data);
     if (data.error) {
@@ -23,9 +23,9 @@ const getCharById = async (req, res) => {
 
     // console.log(data);
     return res.status(200).json(character);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ error: error.message });
+  } catch (axiosError) {
+    // console.log(error);
+    return res.status(500).json({ error: axiosError.message });
   }
 };
 // const getCharById2 = (req, res) => { // con promesas
