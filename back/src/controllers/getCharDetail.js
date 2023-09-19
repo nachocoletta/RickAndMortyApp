@@ -3,6 +3,11 @@ const { toJSON } = require("../utils/toJSON");
 const dotenv = require("dotenv");
 dotenv.config();
 const { API_URL } = process.env;
+
+const getCharDetail2 = async (res, id) => {
+  const response = await axios.get(`${API_URL}/${id}`);
+  console.log(response);
+};
 const getCharDetail = (res, id) => {
   // console.log("entra a getCharDetail");
   axios
@@ -10,7 +15,7 @@ const getCharDetail = (res, id) => {
     // .get(`https://rickandmortyapi.com/api/character/${id}`)
     .then((response) => {
       const { data } = response;
-      console.log(data);
+      // console.log(data);
       const character = {
         id: id,
         image: data.image,

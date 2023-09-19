@@ -18,4 +18,8 @@ const getFav = (req, res) => {
   // console.log(myFavorites);
   return res.status(200).json(myFavorites);
 };
+const getFavPrev = (req, res) => {
+  // console.log(myFavorites);
+  return res.status(200).json(myFavorites);
+};
 module.exports = { postFav, deleteFav, getFav };

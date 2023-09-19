@@ -13,10 +13,9 @@ app.use(cors());
 const { PORT } = process.env;
 
 const fav = [];
-
 app.get("/rickandmorty/character/:id", (req, res) => {
   const { id } = req.params;
-
+  console.log("entra aqui");
   axios
     .get(`https://rickandmortyapi.com/api/character/${id}`)
     .then((response) => {

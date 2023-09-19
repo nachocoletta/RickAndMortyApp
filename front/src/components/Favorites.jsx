@@ -37,7 +37,7 @@
 
 // export default connect(mapStateToProps, null)(Favorites);
 
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "./Card";
 import styles from "./Favorites.module.css";
